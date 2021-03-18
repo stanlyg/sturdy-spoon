@@ -42,7 +42,7 @@ Then run
 python calreader2.py
 ```
 
-The script will read the file from the url designated in the config file, http://some.url/calendar.ics, 3
+The script will read the file from the url designated in the config file, http://some.url/calendar.ics, 
 and create an `at` event for each event occurring "today" (based on the local clock/timezone)
 
 ## External Scripts
@@ -56,9 +56,16 @@ notify-send -u low -t 60000 -i appointment-now 'Meeting'
 /usr/bin/ogg123 -q -d alsa -o 'dev:plughw:2,1' /home/stanlyg/sounds/meeting.ogg
 ```
 
+The scriptname is expected to be in all lower case, and needs to match the name of your event, 
+except spaces are replaced with hyphens. If your event is 'Meeting with Santa Claus', then the script
+base name would be 'meeting-with-santa-claus'. If your event is 'Lunch - Leftovers', then the script 
+base name would be 'lunch---leftovers'. If your events and scripts have non-ASCII, or non-filename-safe 
+characters, YMMV. I know that the hyphen works. 
+
 That script pops a notification in the system tray, and then immediately plays the meeting.ogg sound file. 
 The 'dev:plughw:2,1' forces the particular sound card that meets my requirements. 
 
 ## Daily Use
-You could run this manually every day, but I have a cronjob configured to run at 06:00 local time every morning, and it retrieves my events for the day. 
-My calendar can change on a daily basis, so there's no advantage to me in going past one day. 
+You could run this manually every day, but I have a cronjob configured to run at 06:00 local time every 
+morning, and it retrieves my events for the day. My calendar can change on a daily basis, so there's no 
+advantage to me in going past one day. 
